@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JoinTestcaseApplication {
+public class JoinTestCaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JoinTestcaseApplication.class, args);
+		SpringApplication.run(JoinTestCaseApplication.class, args);
 	}
-
 }

@@ -47,8 +47,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/category/**").authenticated()
-                        .requestMatchers(HttpMethod.GET, "/products/**").authenticated()
+                        .requestMatchers("/category/**").authenticated()
+                        .requestMatchers("/products/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JwtTokenFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);

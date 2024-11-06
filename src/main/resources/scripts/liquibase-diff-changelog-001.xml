@@ -63,12 +63,18 @@
     <!-- Inserts for join_category -->
     <insert tableName="join_category">
       <column name="category_name" value="Cell phones"/>
+      <column name="min_price" value="1000"/>
+      <column name="max_price" value="20000"/>
     </insert>
     <insert tableName="join_category">
       <column name="category_name" value="Tablets"/>
+      <column name="min_price" value="700"/>
+      <column name="max_price" value="10000"/>
     </insert>
     <insert tableName="join_category">
       <column name="category_name" value="Computers"/>
+      <column name="min_price" value="1000"/>
+      <column name="max_price" value="75000"/>
     </insert>
 
     <!-- Rollback to drop all created tables -->
