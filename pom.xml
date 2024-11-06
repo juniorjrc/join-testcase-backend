@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- SPRING BOOT VERSION -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.5</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <!-- SERVICE INFORMATION/ JAVA COMPILER / CUSTOM PROPERTIES -->
+  <groupId>com.join</groupId>
+  <artifactId>testcase</artifactId>
+  <version>1.0.0</version>
+  <name>testcase</name>
+  <description>JOIN test case project</description>
+  <properties>
+    <java.version>21</java.version>
+  </properties>
+
+  <!-- DEPENDENCIES -->
+  <dependencies>
+
+    <!-- SPRING BOOT STARTER -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+
+    <!-- SPRING BOOT STARTER WEB -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- SPRING DATA JPA -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!-- SPRING SECURITY STARTER -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <!-- LIQUIBASE -->
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-core</artifactId>
+    </dependency>
+
+    <!-- POSTGRESQL DRIVER -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- JSON WEB TOKEN -->
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt</artifactId>
+      <version>0.9.1</version>
+    </dependency>
+
+    <!-- LOMBOK -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.30</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- SPRING BOOT TEST LIBRARIES -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      			<plugin>
+      				<groupId>org.liquibase</groupId>
+      				<artifactId>liquibase-maven-plugin</artifactId>
+      				<version>3.5.3</version>
+      				<configuration>
+      					<driver>org.postgresql.Driver</driver>
+      					<username>${DATABASE_USERNAME:join}</username>
+      					<password>${DATABASE_PASSWORD:joinpwd}</password>
+      					<url>${DATABASE_URL:jdbc:postgresql://localhost:5432/joindsv}</url>
+      					<changeLogFile>src/main/resources/db/changelog/liquibase.xml</changeLogFile>
+      					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
+      				</configuration>
+      			</plugin>
+    </plugins>
+  </build>
+
+</project>

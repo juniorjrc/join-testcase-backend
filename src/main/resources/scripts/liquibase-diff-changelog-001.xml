@@ -1,0 +1,81 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet id="join-testcase-1" author="jorgecoutinho">
+    <comment>Create tables join_user, join_category, and join_product</comment>
+
+    <!-- Table join_user -->
+    <createTable tableName="join_user">
+      <column name="id" type="BIGSERIAL" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="user_name" type="VARCHAR(150)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="login" type="VARCHAR(100)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="pass" type="TEXT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <!-- Table join_category -->
+    <createTable tableName="join_category">
+      <column name="id" type="BIGSERIAL" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="category_name" type="VARCHAR(150)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="description" type="TEXT"/>
+      <column name="min_price" type="NUMERIC(10,2)"/>
+      <column name="max_price" type="NUMERIC(10,2)"/>
+    </createTable>
+
+    <!-- Table join_product with Foreign Key Constraint -->
+    <createTable tableName="join_product">
+      <column name="id" type="BIGSERIAL" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="product_name" type="VARCHAR(150)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="product_description" type="TEXT"/>
+      <column name="category_id" type="INT">
+        <constraints nullable="false" foreignKeyName="fk_product_category"
+          references="join_category(id)"/>
+      </column>
+      <column name="price" type="NUMERIC(10,2)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <!-- Inserts for join_user -->
+    <insert tableName="join_user">
+      <column name="user_name" value="Join Master User"/>
+      <column name="login" value="joinusr"/>
+      <column name="pass" value="$2a$12$TMGDGHRLVcj3Nk.WPFPZVOCO0gm74nTcuBd4qnPYl7H7p27rP2xxu"/>
+    </insert>
+
+    <!-- Inserts for join_category -->
+    <insert tableName="join_category">
+      <column name="category_name" value="Cell phones"/>
+    </insert>
+    <insert tableName="join_category">
+      <column name="category_name" value="Tablets"/>
+    </insert>
+    <insert tableName="join_category">
+      <column name="category_name" value="Computers"/>
+    </insert>
+
+    <!-- Rollback to drop all created tables -->
+    <rollback>
+      <dropTable tableName="join_product"/>
+      <dropTable tableName="join_category"/>
+      <dropTable tableName="join_user"/>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

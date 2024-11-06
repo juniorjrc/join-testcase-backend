@@ -1,0 +1,40 @@
+server:
+  forward-headers-strategy: NATIVE
+  servlet:
+    context-path: /join
+  port: 9001
+
+spring:
+  application:
+    name: join-testcase
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/join}
+    username: ${DATABASE_USERNAME:join}
+    password: ${DATABASE_PASSWORD:joinpwd}
+    hikari:
+      schema: ${DATABASE_SCHEMA:joindsv}
+    jpa:
+      properties:
+        hibernate.temp.use_jdbc_metadata_defaults: false
+        hibernate.jdbc.lob.non_contextual_creation: true
+        hibernate.jdbc.time_zone: America/Sao_Paulo
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      show-sql: false
+      hibernate:
+        format_sql: true
+        ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      open-in-view: false
+  liquibase:
+    change-log: classpath:/db/changelog/liquibase.xml
+    enabled: true
+
+security:
+  jwt:
+    token:
+      secret-key: ${JWT_SECRET_KEY:joinSecretKey123#}
+      expire-length: 28800000
+
+allowedOrigins: ${ALLOWED_ORIGINS:http://localhost:4200}
