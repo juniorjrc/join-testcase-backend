@@ -1,4 +1,4 @@
-# JOIN TEST CASE BACKEN
+# JOIN TEST CASE BACKEND
 Project built for JOIN in the selection process
 
 ## Local Database connection configuration
