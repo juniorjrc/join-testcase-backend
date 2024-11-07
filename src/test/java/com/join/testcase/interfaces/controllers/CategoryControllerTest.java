@@ -52,7 +52,6 @@ class CategoryControllerTest extends JoinTestCaseHttpRequestUtils {
                 null,
                 new HashMap<>()
         ).getResponse().getContentAsString();
-        System.out.println(jsonResponse);
         Page<CategoryDTO> categoryDTOPage = fromJsonToPage(jsonResponse, CategoryDTO.class);
         List<CategoryDTO> categoryDTOList = categoryDTOPage.getContent().stream().toList();
         assertEquals(1, categoryDTOPage.getTotalPages());

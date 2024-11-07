@@ -1,7 +1,6 @@
 package com.join.testcase.infrastructure.exceptions;
 
 import com.join.testcase.interfaces.enums.ExceptionCodeEnum;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;

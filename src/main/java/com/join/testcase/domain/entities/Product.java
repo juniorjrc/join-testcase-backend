@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Setter
+@Builder
 public class Product {
 
     @Id
@@ -30,4 +31,13 @@ public class Product {
 
     @Column(name = "PRICE")
     private BigDecimal price;
+
+    @Column(name = "TECHNICAL_SPECIFICATIONS")
+    private String technicalSpecifications;
+
+    @Column(name = "IMEI_NUMBER")
+    private String imeiNumber;
+
+    @Column(name = "OPERATING_SYSTEM")
+    private String operatingSystem;
 }

@@ -2,7 +2,6 @@ package com.join.testcase.infrastructure.exceptions.handler;
 
 import com.join.testcase.infrastructure.exceptions.JoinTestCaseException;
 import com.join.testcase.infrastructure.exceptions.JoinTestCaseExceptionResponse;
-import com.join.testcase.interfaces.enums.ExceptionCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Primary;
@@ -46,8 +45,8 @@ public class CustomizedResponseEntityExceptionHandler {
             code = ((JoinTestCaseException) throwable).getCode().name();
         }
 
-        if (throwable instanceof MethodArgumentNotValidException) {
-            errors = ((MethodArgumentNotValidException) throwable).getBindingResult().getFieldErrors()
+        if (throwable instanceof MethodArgumentNotValidException methodArgumentNotValidException) {
+            errors = methodArgumentNotValidException.getBindingResult().getFieldErrors()
                     .stream()
                     .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage));
         }

@@ -3,9 +3,7 @@ package com.join.testcase.interfaces.controllers;
 import com.join.testcase.annotations.IntegrationTest;
 import com.join.testcase.interfaces.dto.CredentialsDTO;
 import com.join.testcase.interfaces.dto.LoggedUserDTO;
-import com.join.testcase.utils.JoinTestCaseHttpMethodUtils;
 import com.join.testcase.utils.JoinTestCaseHttpRequestUtils;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,8 +18,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.util.HashMap;
 
-import static com.join.testcase.utils.JoinTestCaseHttpMethodUtils.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.join.testcase.utils.JoinTestCaseHttpMethodUtils.POST;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 @ExtendWith(SpringExtension.class)

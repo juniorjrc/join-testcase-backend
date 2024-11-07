@@ -5,8 +5,6 @@ import com.join.testcase.interfaces.dto.CategoryDTO;
 import com.join.testcase.interfaces.enums.CategoryEnum;
 import org.mapstruct.Mapper;
 
-import java.util.List;
-
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
 

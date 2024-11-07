@@ -51,6 +51,9 @@
       <column name="price" type="NUMERIC(10,2)">
         <constraints nullable="false"/>
       </column>
+      <column name="technical_specifications" type="TEXT"/>
+      <column name="imei_number" type="VARCHAR(50)"/>
+      <column name="operating_system" type="VARCHAR(90)"/>
     </createTable>
 
     <!-- Inserts for join_user -->
