@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "083f16e0-ca54-4523-87b7-3f4b3105add2",
+		"name": "JOIN TESTCASE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6642725"
+	},
+	"item": [
+		{
+			"name": "CATEGORY",
+			"item": [
+				{
+					"name": "[GET] - All categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/join/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] - Find by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/join/category/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] - Update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Computers description\",\n    \"minPrice\":  1500.75,\n    \"maxPrice\": 20000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/join/category/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DELETE] - Delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/join/category/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "[GET] - All products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/join/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] - Create product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productName\": \"Apple Ipad 16\",\n    \"productDescription\": \"Apple Ipad 16 - New 2024\",\n    \"categoryId\": 2,\n    \"price\": 9500.50,\n    \"imeiNumber\": null,\n    \"operatingSystem\": null,\n    \"technicalSpecifications\": \"Beatiful iphone tablet\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/join/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] - Update product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productName\": \"Dell notebook\",\n    \"productDescription\": \"Notebook Dell i5\",\n    \"categoryId\": 3,\n    \"price\": 15000,\n    \"imeiNumber\": null,\n    \"operatingSystem\": \"Windows\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/join/product/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] - Product by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/join/product/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DELETE] - Delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{joinToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/join/product/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"join",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "[POST] - Authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responseJson = pm.response.json();",
+							"var accessToken = responseJson.token;",
+							"console.log(\"Token:\", accessToken)",
+							"pm.globals.set(\"joinToken\", accessToken)",
+							"pm.environment.set(\"joinToken\", accessToken)",
+							"",
+							"pm.test(\"joinToken variable was set\", function() {",
+							"    pm.expect(pm.environment.get(\"joinToken\")).to.eql(accessToken);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"joinusr\",\n    \"password\": \"joinusr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/join/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"join",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
